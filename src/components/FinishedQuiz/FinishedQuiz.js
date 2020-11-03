@@ -8,7 +8,12 @@ const FinishedQuiz = () => {
                 <li>
                     <strong>1. </strong>
                     Example text
-                    <i className={''} />
+                    <i className={'fa fa-times ' + classes.error} />
+                </li>
+                <li>
+                    <strong>2. </strong>
+                    Example text
+                    <i className={'fa fa-check ' + classes.success} />
                 </li>
             </ul>
             <p>Example counter</p>

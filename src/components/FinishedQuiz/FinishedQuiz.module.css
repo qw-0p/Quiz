@@ -13,5 +13,13 @@
     margin: 0;
 }
 
-.FinishedQuiz ul li {
+.FinishedQuiz ul li i {
+    margin-left: 10px;
+}
+
+.success {
+    color: rgb(69, 240, 126, 0.7);
+}
+.error {
+    color: rgb(214, 12, 39, 0.7);
 }
