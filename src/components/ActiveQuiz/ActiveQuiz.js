@@ -8,11 +8,11 @@ const ActiveQuiz = (props) => {
             <p className={classes.Question}>
                 <span>
                     <strong>2. </strong>
-                    Example quiz
+                    {props.question}
                 </span>
             </p>
 
-            <AnswersList answers={props.answers} />
+            <AnswersList answers={props.answers} onAnswerClick={props.onAnswerClick} />
         </div>
     )
 }
