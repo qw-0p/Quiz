@@ -80,6 +80,14 @@ class Quiz extends Component {
     isQuizFinished() {
         return this.state.activeQuestion + 1 === this.state.quiz.length
     }
+    retryHandler = () => {
+        this.setState({
+            results: {},
+            isFinished: false,
+            activeQuestion: 0,
+            answerState: null
+        })
+    }
 
     render() {
         return (
@@ -87,7 +95,7 @@ class Quiz extends Component {
                 <div className={classes.QuizWrapper}>
                     <h1>Quiz</h1>
                     {this.state.isFinished ? (
-                        <FinishedQuiz results={this.state.results} quiz={this.state.quiz} />
+                        <FinishedQuiz results={this.state.results} quiz={this.state.quiz} onRetry={this.retryHandler} />
                     ) : (
                         <ActiveQuiz
                             answers={this.state.quiz[this.state.activeQuestion].answers}
