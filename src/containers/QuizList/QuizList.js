@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import {NavLink} from 'react-router-dom'
-import QuizCreator from '../QuizCreator/QuizCreator'
 import classes from './QuizList.module.css'
 
 class QuizList extends Component {
