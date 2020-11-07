@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import classes from './Auth.module.css'
 import Button from '../../components/UI/Button/Button'
+import Input from '../../components/UI/Input/Input'
 
 class Auth extends Component {
     loginHandler = () => {}
@@ -12,11 +13,11 @@ class Auth extends Component {
     render() {
         return (
             <div className={classes.Auth}>
-                <h1>
+                <div>
                     <h1>Авторизация</h1>
                     <form onSubmit={this.submitHandler} className={classes.AuthForm}>
-                        <input type='text' />
-                        <input type='text' />
+                        <Input label='Email' />
+                        <Input label='Password' />
                         <Button type='success' onClick={this.loginHandler}>
                             Войти
                         </Button>
@@ -24,7 +25,7 @@ class Auth extends Component {
                             Зарегистрироваться
                         </Button>
                     </form>
-                </h1>
+                </div>
             </div>
         )
     }
