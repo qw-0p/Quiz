@@ -173,4 +173,13 @@ class QuizCreator extends Component {
     }
 }
 
+function mapStateToProps(state) {
+    return {
+        quiz: state.create.quiz
+    }
+}
+function mapDispatchToProps(dispatch) {
+    return {}
+}
+
 export default connect(mapStateToProps, mapDispatchToProps)(QuizCreator)
