@@ -37,7 +37,6 @@ function createFormControls() {
 
 class QuizCreator extends Component {
     state = {
-        quiz: [],
         isFormValid: false,
         rightAnswerId: 1,
         formControls: createFormControls()
@@ -49,10 +48,11 @@ class QuizCreator extends Component {
 
     addQuestionHandler = (event) => {
         event.preventDefault()
+
         const {question, option1, option2, option3, option4} = this.state.formControls
 
         const questionItem = {
-            question: this.state.formControls.question.value,
+            question: question.value,
             id: this.props.quiz.length + 1,
             rightAnswerId: this.state.rightAnswerId,
             answers: [
@@ -76,7 +76,6 @@ class QuizCreator extends Component {
         event.preventDefault()
 
         this.setState({
-            quiz: [],
             isFormValid: false,
             rightAnswerId: 1,
             formControls: createFormControls()
@@ -171,6 +170,7 @@ function mapStateToProps(state) {
         quiz: state.create.quiz
     }
 }
+
 function mapDispatchToProps(dispatch) {
     return {
         createQuizQuestion: (item) => dispatch(createQuizQuestion(item)),

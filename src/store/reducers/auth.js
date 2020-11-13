@@ -1,7 +1,7 @@
 import {AUTH_LOGOUT, AUTH_SUCCESS} from '../actions/actionTypes'
 
 const initialState = {
-    tokey: null
+    token: null
 }
 
 export default function authReducer(state = initialState, action) {

@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
+import classes from './Quiz.module.css'
 import ActiveQuiz from '../../components/ActiveQuiz/ActiveQuiz'
 import FinishedQuiz from '../../components/FinishedQuiz/FinishedQuiz'
-import classes from './Quiz.module.css'
 import Loader from '../../components/UI/Loader/Loader'
 import {connect} from 'react-redux'
 import {fetchQuizById, quizAnswerClick, retryQuiz} from '../../store/actions/quiz'
@@ -10,14 +10,17 @@ class Quiz extends Component {
     componentDidMount() {
         this.props.fetchQuizById(this.props.match.params.id)
     }
+
     componentWillUnmount() {
         this.props.retryQuiz()
     }
+
     render() {
         return (
             <div className={classes.Quiz}>
                 <div className={classes.QuizWrapper}>
-                    <h1>Quiz</h1>
+                    <h1>Ответьте на все вопросы</h1>
+
                     {this.props.loading || !this.props.quiz ? (
                         <Loader />
                     ) : this.props.isFinished ? (
@@ -37,6 +40,7 @@ class Quiz extends Component {
         )
     }
 }
+
 function mapStateToProps(state) {
     return {
         results: state.quiz.results,
@@ -47,6 +51,7 @@ function mapStateToProps(state) {
         loading: state.quiz.loading
     }
 }
+
 function mapDispatchToProps(dispatch) {
     return {
         fetchQuizById: (id) => dispatch(fetchQuizById(id)),

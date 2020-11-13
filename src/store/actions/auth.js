@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {AUTH_SUCCESS, AUTH_LOGOUT} from './actionTypes'
+import {AUTH_LOGOUT, AUTH_SUCCESS} from './actionTypes'
 
 export function auth(email, password, isLogin) {
     return async (dispatch) => {
@@ -8,6 +8,7 @@ export function auth(email, password, isLogin) {
             password,
             returnSecureToken: true
         }
+
         let url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDCxdx4yIqt7o8l9ilCfGukDNqZaW9-3l4'
 
         if (isLogin) {
@@ -21,7 +22,8 @@ export function auth(email, password, isLogin) {
 
         localStorage.setItem('token', data.idToken)
         localStorage.setItem('userId', data.localId)
-        localStorage.setItem('expirationDate', data.expirationDate)
+        localStorage.setItem('expirationDate', expirationDate)
+
         dispatch(authSuccess(data.idToken))
         dispatch(autoLogout(data.expiresIn))
     }
@@ -43,6 +45,8 @@ export function logout() {
         type: AUTH_LOGOUT
     }
 }
+
+export function autoLogin() {}
 
 export function authSuccess(token) {
     return {
