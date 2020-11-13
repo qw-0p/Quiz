@@ -10,16 +10,16 @@ import Logout from './components/Logout/Logout'
 import {autoLogin} from './store/actions/auth'
 
 class App extends Component {
-    // componentDidMount() {
-    //     this.props.authLogin()
-    // }
+    componentDidMount() {
+        this.props.autoLogin()
+    }
 
     render() {
         let routes = (
             <Switch>
                 <Route path='/auth' component={Auth} />
                 <Route path='/quiz/:id' component={Quiz} />
-                <Route path='/' component={QuizList} />
+                <Route path='/' exact component={QuizList} />
                 <Redirect to='/' />
             </Switch>
         )
@@ -29,8 +29,9 @@ class App extends Component {
                 <Switch>
                     <Route path='/quiz-creator' component={QuizCreator} />
                     <Route path='/quiz/:id' component={Quiz} />
-                    <Route path='/' component={QuizList} />
                     <Route path='/logout' component={Logout} />
+                    xa
+                    <Route path='/' exact component={QuizList} />
                     <Redirect to='/' />
                 </Switch>
             )
@@ -48,8 +49,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        authLogin: () => dispatch(autoLogin())
+        autoLogin: () => dispatch(autoLogin())
     }
 }
 
-export default withRouter(connect(mapStateToProps)(App))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App))
