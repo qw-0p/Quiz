@@ -3,6 +3,7 @@ import classes from './Layout.module.css'
 import MenuToggle from '../../components/Navigation/MenuToggle/MenuToggle'
 import Drawer from '../../components/Navigation/Drawer/Drawer'
 import {connect} from 'react-redux'
+import Dev from '../../components/UI/Dev/Dev'
 
 class Layout extends Component {
     state = {
@@ -29,6 +30,7 @@ class Layout extends Component {
                 <MenuToggle onToggle={this.toggleMenuHandler} isOpen={this.state.menu} />
 
                 <main>{this.props.children}</main>
+                <Dev />
             </div>
         )
     }

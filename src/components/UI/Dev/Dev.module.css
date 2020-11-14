@@ -1,0 +1,21 @@
+.Dev {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.Dev a {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    bottom: 10px;
+    right: 0;
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+    font-weight: bold;
+}
+.Dev img {
+    margin-left: 5px;
+    width: 28px;
+}
